@@ -1,0 +1,46 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    apply from: './versions.gradle'
+    addRepos(repositories) //增加代码仓库
+    dependencies {
+        classpath deps.android_gradle_plugin
+        classpath deps.android_maven_gradle_plugin
+    }
+}
+
+//allprojects {
+//    addRepos(repositories)
+//}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://repo1.maven.org/maven2/' }
+        maven { url 'https://oss.sonatype.org/content/repositories/public' }
+        maven { url "https://jitpack.io" }
+    }
+
+    // 设置全局编码
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    // 将构建文件统一输出到项目根目录下的 build 文件夹
+    setBuildDir(new File(rootDir, "build/${path.replaceAll(':', '/')}"))
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+
+    FileTree rootTree = fileTree(dir: rootDir)
+    rootTree.each { File file ->
+        if ((file.toString().contains("ajcore") || file.toString().contains("mapping") || file.toString().contains("seeds") || file.toString().contains("unused")) && file.toString().endsWith(".txt")) {
+            delete file
+        }
+    }
+}

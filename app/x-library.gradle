@@ -1,0 +1,38 @@
+apply plugin: 'com.xuexiang.xrouter'
+apply plugin: 'kotlin-kapt'
+
+//自动添加依赖
+configurations.each { configuration ->
+    def dependencies = getProject().dependencies
+    if (configuration.name == "implementation") {
+        //XUI框架
+        configuration.dependencies.add(dependencies.create(deps.xlibrary.xui))
+        //XUtil工具类
+        configuration.dependencies.add(dependencies.create(deps.xlibrary.xutil_core))
+        configuration.dependencies.add(dependencies.create(deps.xlibrary.xutil_sub))
+        //XPage
+        configuration.dependencies.add(dependencies.create(deps.xlibrary.xpage_lib))
+        //页面路由
+        configuration.dependencies.add(dependencies.create(deps.xlibrary.xrouter_runtime))
+
+        configuration.dependencies.add(dependencies.create(deps.androidx.appcompat))
+        configuration.dependencies.add(dependencies.create(deps.androidx.recyclerview))
+        configuration.dependencies.add(dependencies.create(deps.androidx.design))
+        configuration.dependencies.add(dependencies.create(deps.rxandroid))
+        configuration.dependencies.add(dependencies.create(deps.okhttp3))
+        configuration.dependencies.add(dependencies.create(deps.gson))
+    }
+
+    if (configuration.name == "kapt") {
+        //XPage
+        configuration.dependencies.add(dependencies.create(deps.xlibrary.xpage_compiler))
+        //页面路由
+        configuration.dependencies.add(dependencies.create(deps.xlibrary.xrouter_compiler))
+    }
+}
+
+configurations.all {
+    resolutionStrategy.force deps.okhttp3
+    //总是拉取最新的 build 版本
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}

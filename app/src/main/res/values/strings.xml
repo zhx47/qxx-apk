@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="account_data">account_data</string>
+    <string name="app_name">抢夕夕</string>
+    <string name="notification_content">正在保活中</string>
+
+    <string-array name="home_titles">
+        <item>抢夕夕</item>
+        <item>任务大厅</item>
+        <item>通用设置</item>
+    </string-array>
+
+    <string name="menu_qxx">抢夕夕</string>
+    <string name="menu_settings">通用设置</string>
+    <string name="logo">Logo</string>
+    <string name="navigation_drawer_open">打开导航抽屉</string>
+    <string name="navigation_drawer_close">关闭导航抽屉</string>
+
+    <string name="login_title">返回</string>
+    <string name="tips_notification">请先授予发送通知权限，有利于软件保活！</string>
+    <string name="request_location_permission">申请定位权限</string>
+    <string name="request_media_read_permission">申请媒体文件读取权限</string>
+    <string name="request_all_file_access_permission">申请所有文件管理权限</string>
+    <string name="request_display_over_other_apps_permission">申请悬浮窗权限</string>
+    <string name="request_allow_notifications_permission">申请通知权限</string>
+    <string name="request_send_notifications_permission_api33">申请新版通知权限</string>
+    <string name="request_ignore_battery_optimize_permission">申请忽略电池优化权限</string>
+    <string name="common_permission_unknown">权限</string>
+    <string name="common_permission_storage">存储权限</string>
+
+
+    <string name="toast_granted_all">获取所有必需的权限成功！</string>
+    <string name="toast_granted_part">获取部分权限成功，但部分权限未正常授予，APP部分功能可能受限！</string>
+    <string name="toast_denied_never">被永久拒绝授权，前往系统设置手动授予权限？</string>
+    <string name="toast_denied">获取必需的权限失败，APP功能可能受限！</string>
+
+
+    <string name="common_permission_image_and_video">照片和视频权限</string>
+    <string name="common_permission_music_and_audio">音乐和音频权限</string>
+    <string name="common_permission_camera">相机权限</string>
+    <string name="common_permission_location_background">后台定位权限</string>
+    <string name="common_permission_ignore_battery_optimize">忽略电池优化权限</string>
+    <string name="common_permission_post_notifications">发送通知权限</string>
+    <string name="common_permission_allow_notifications">通知权限</string>
+    <string name="common_permission_modify_system_settings">修改系统设置权限</string>
+    <string name="common_permission_display_over_other_apps">悬浮窗权限</string>
+    <string name="common_permission_access_media_location">读取媒体文件位置权限</string>
+    <string name="common_permission_description">权限说明</string>
+    <string name="common_permission_message">使用此功能需要先授予%s</string>
+    <string name="common_permission_granted">授予</string>
+    <string name="common_permission_denied">取消</string>
+    <string name="common_permission_media_location_hint_fail">获取媒体位置权限失败\n请清除应用数据后重试</string>
+    <string name="common_permission_background_location_fail_hint">获取后台定位权限失败，\n请您选择《始终允许》</string>
+    <string name="common_permission_fail_hint">授权失败，请正确授予权限</string>
+    <string name="common_permission_fail_assign_hint">授权失败，请正确授予%s</string>
+    <string name="common_permission_manual_assign_fail_hint">获取权限失败，请手动授予%s</string>
+    <string name="common_permission_manual_fail_hint">获取权限失败，请手动授予权限</string>
+    <string name="common_permission_alert">授权提醒</string>
+    <string name="common_permission_goto_setting_page">前往授权</string>
+    <string name="demo_obtain_permission_success_hint">获取%s成功</string>
+    <string name="demo_android_10_read_media_location_permission_hint">当前版本不是 Android 10
+        及以上，旧版本的需要读取存储权限才能获取媒体位置权限
+    </string>
+    <string name="demo_android_13_read_media_permission_hint">当前版本不是 Android 13
+        及以上，会自动变更为旧版的请求方式
+    </string>
+    <string name="demo_android_11_manage_storage_permission_hint">当前版本不是 Android 11
+        及以上，会自动变更为旧版的请求方式
+    </string>
+    <string name="demo_android_13_post_notification_permission_hint">当前版本不是 Android 13
+        及以上，会自动变更为旧版的请求方式
+    </string>
+
+
+    <!--  申请权限页面  -->
+    <string name="need_to_restart">需要手动重新启动APP，才能生效该配置项</string>
+    <string name="unsupport">您的手机不支持此设置</string>
+    <string name="isIgnored">已将省电优化设置为无限制(不优化)！</string>
+    <string name="isIgnored2">本界面无法直接操作系统的省电优化设置</string>
+    <string name="tips_compatible_solution">兼容方案</string>
+    <string name="manual_setup">手动设置</string>
+    <string name="keep_alive">保活措施</string>
+    <string name="keep_alive_tips">建议开启前三项授权或设置，不要禁用通知栏，避免APP被杀</string>
+    <string name="common_allow_notifications">通知权限</string>
+    <string name="common_allow_notifications_tips">最基础的状态栏保活需要的权限</string>
+    <string name="common_request_send_notifications_api33">新版通知权限</string>
+    <string name="common_request_send_notifications_api33_tips">最基础的状态栏保活需要的权限</string>
+    <string name="auto_startup">开机启动</string>
+    <string name="auto_start_unknown">未知手机品牌：需要自主查看设置操作</string>
+    <string name="auto_start_huawei"><![CDATA[华为手机：应用启动管理 -> 关闭应用开关 -> 打开允许自启动]]></string>
+    <string name="auto_start_honor"><![CDATA[荣耀手机：应用启动管理 -> 关闭应用开关 -> 打开允许自启动]]></string>
+    <string name="auto_start_xiaomi"><![CDATA[小米手机：授权管理 -> 自启动管理 -> 允许应用自启动]]></string>
+    <string name="auto_start_oppo"><![CDATA[OPPO手机：权限隐私 -> 自启动管理 -> 允许应用自启动]]></string>
+    <string name="auto_start_vivo"><![CDATA[vivo手机：权限管理 -> 自启动 -> 允许应用自启动]]></string>
+    <string name="auto_start_meizu"><![CDATA[魅族手机：权限管理 -> 后台管理 -> 点击应用 -> 允许后台运行]]></string>
+    <string name="auto_start_samsung">
+        <![CDATA[三星手机：自动运行应用程序 -> 打开应用开关 -> 电池管理 -> 未监视的应用程序 -> 添加应用]]></string>
+    <string name="auto_start_letv"><![CDATA[乐视手机：自启动管理 -> 允许应用自启动]]></string>
+    <string name="auto_start_smartisan">
+        <![CDATA[锤子手机：权限管理 -> 自启动权限管理 -> 点击应用 -> 允许被系统启动]]></string>
+    <string name="battery_setting">忽略电池优化设置</string>
+    <string name="battery_setting_tips">请设置为手动管理：允许自启动、允许关联启动、允许后台运行</string>
+    <string name="enable_exclude_from_recents">在最近任务列表中隐藏</string>
+    <string name="enable_exclude_from_recents_tips">请先锁定后再开启隐藏，有效避免手动误杀进程</string>
+    <string name="enable_cactus">启用 Cactus 增强保活措施（会增加耗电）</string>
+    <string name="enabe_cactus_tips">双进程前台服务/JobScheduler/WorkManager/1像素/无声音乐</string>
+    <string name="optional_components">可选组件：</string>
+    <string name="play_silence_music">后台播放无声音乐</string>
+    <string name="play_silence_music_tips">【按需启用】播放无声音乐让后台一直运行，可能比较耗电</string>
+    <string name="one_pixel_activity">1像素透明Activity</string>
+    <string name="one_pixel_activity_tips">【按需启用】使进程的优先级在屏幕锁屏时间由4提升为最高优先级1</string>
+    <string name="suggest_allowing_permissions">建议允许的权限</string>
+    <string name="suggest_allowing_permissions_tips">软件保活或者做单大厅需要的权限，不需要可以不必授权</string>
+    <string name="common_permission_location">定位权限</string>
+    <string name="common_permission_location_tips">部分平台需要定位权限</string>
+    <string name="common_permission_media_read">媒体文件读取权限</string>
+    <string name="common_permission_media_read_tips">可能做单大厅上传附件需要此权限</string>
+    <string name="common_permission_all_file_access">所有文件访问权限</string>
+    <string name="common_permission_all_file_access_tips">可能做单大厅上传附件需要此权限</string>
+    <string name="enjoy">进入软件</string>
+</resources>

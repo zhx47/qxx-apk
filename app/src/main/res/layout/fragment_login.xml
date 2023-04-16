@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
+              android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar
+            android:theme="?attr/actionBarTheme"
+            android:id="@+id/activity_login_toolbar"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:minHeight="?attr/actionBarSize"
+            app:navigationIcon="@drawable/jpush_ic_richpush_actionbar_back"
+            app:subtitleTextColor="#ffffff"
+            app:title="@string/login_title"
+            app:titleTextColor="#ffffff"/>
+    <com.tencent.smtt.sdk.WebView
+            android:id="@+id/activity_login_webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"/>
+    <Button android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="登录完成"/>
+</LinearLayout>

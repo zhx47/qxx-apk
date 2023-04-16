@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+>
+
+    <!--  极光SDK必须  -->
+    <permission android:name="com.example.qde.permission.JPUSH_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.example.qde.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="com.example.qde.permission.JOPERATE_MESSAGE"/>
+
+    <!--  忽略电池优化  -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <!--  接受广播点亮屏幕  -->
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <!--  设备的IMEI和序列号，必须为系统应用，没啥用，拿不到有用信息  -->
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" tools:ignore="ProtectedPermissions"/>
+    <!--  拥有完整的网络访问权限  -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--  查看网络连接  -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--  允许程序访问Wi-Fi网络状态信息  -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--  在后台使用位置信息  -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <!--  只有在前台运行时才能获取大致位置信息  -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!--  只能在前台获取精确的位置信息  -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!--  获取额外的位置信息提供程序命令  -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <!--  此应用可显示在其他应用上方  -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <!--  防止手机休眠  -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!--  开机启动  -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <!--  运行前台服务  -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <!--  修改或删除您共享存储空间中的内容  -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage"/>
+    <!--  读取您共享存储空间中的内容  -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!--  管理共享存储空间的内容  -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage"/>
+    <!--  请求安装文件包  -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <!--  修改系统设置  -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" tools:ignore="ProtectedPermissions"/>
+    <!--  振动器权限，JPUSH支持通知开启振动功能，小米推送必须  -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!--  允许扩展收缩在状态栏  -->
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <!-- 适配Android13，弹出通知必须权限  -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <!--  读取媒体文件权限  -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+
+    <application
+            android:name=".App"
+            android:configChanges="screenSize|keyboardHidden|orientation|keyboard"
+            android:defaultToDeviceProtectedStorage="true"
+            android:directBootAware="true"
+            android:hardwareAccelerated="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:largeHeap="true"
+            android:networkSecurityConfig="@xml/network_security_config"
+            android:requestLegacyExternalStorage="true"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            tools:ignore="DataExtractionRules,LockedOrientationActivity,UnusedAttribute">
+        <!-- 告知 XXPermissions 当前项目已经适配了分区存储特性 -->
+        <meta-data android:name="ScopedStorage" android:value="true"/>
+        <!--屏幕自适应设计图-->
+        <meta-data android:name="design_width_in_dp" android:exported="true" android:value="360" />
+        <meta-data android:name="design_height_in_dp" android:exported="true" android:value="640" />
+
+        <activity
+                android:name=".activity.SplashActivity"
+                android:configChanges="screenSize|keyboardHidden|orientation|keyboard"
+                android:excludeFromRecents="true"
+                android:exported="true"
+                android:screenOrientation="portrait"
+                android:taskAffinity=":splash"
+                android:theme="@style/AppTheme.Launch.App"
+                android:windowSoftInputMode="adjustPan|stateHidden"
+                tools:ignore="TranslucentOrientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+                android:name=".activity.MainActivity"
+                android:configChanges="screenSize|keyboardHidden|orientation|keyboard"
+                android:exported="true"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <!--fragment的页面容器-->
+        <activity
+                android:name=".core.BaseActivity"
+                android:configChanges="screenSize|keyboardHidden|orientation|keyboard"
+                android:exported="true"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <!--    前台服务，用于通知保活Service    -->
+        <service android:name="com.example.qde.service.ForegroundService" android:enabled="true"/>
+        <!--    后续修改，和KeepLiveService重复了，到时候改名区分    -->
+<!--        <service android:name="com.example.qde.service.MainService"/>-->
+
+        <!--    播放音乐    -->
+        <service android:name=".service.PlayerMusicService" android:enabled="true"
+                 android:exported="true" android:process=":music_service"/>
+        <!--    腾讯TBS X5内核优化    -->
+        <service android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"
+                 android:label="dexopt"
+                 android:process=":dexopt">
+        </service>
+
+        <!--    重启    -->
+        <receiver android:name=".receiver.BootReceiver"
+                  android:defaultToDeviceProtectedStorage="true"
+                  android:directBootAware="true"
+                  android:exported="true"
+                  tools:ignore="IntentFilterExportedReceiver">
+            <intent-filter android:priority="207746136">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.PACKAGE_RESTARTED"/>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <!--    接受极光自定义消息    -->
+        <receiver android:name="com.example.qde.receiver.BootBroadcastReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <!--    将极光的自定义消息展示出来    -->
+        <service android:name="com.example.qde.service.SeasyService" android:enabled="true" android:exported="true"
+                 android:process=":remote">
+            <intent-filter android:priority="1000">
+                <action android:name="com.example.action.SeasyService"/>
+            </intent-filter>
+        </service>
+
+        <!--    下面的都是极光SDK    -->
+        <!-- Required. For publish channel feature -->
+        <!-- JPUSH_CHANNEL 是为了方便开发者统计 APK 分发渠道。-->
+        <!-- 例如: -->
+        <!-- 发到 Google Play 的 APK 可以设置为 google-play; -->
+        <!-- 发到其他市场的 APK 可以设置为 xxx-market。 -->
+        <meta-data android:name="JPUSH_CHANNEL" android:value="${JPUSH_CHANNEL}"/>
+        <!-- Required. AppKey copied from Portal -->
+        <meta-data android:name="JPUSH_APPKEY" android:value="${JPUSH_APPKEY}"/>
+        <!-- 若您的业务中有使用极光富媒体功能，需要把此 Activity 的 exported 修改成 true 覆盖 mavenCentral 上的组件。 -->
+        <activity
+                android:name="cn.jpush.android.ui.PopWinActivity"
+                android:exported="true"
+                tools:node="replace"
+                android:theme="@style/MyDialogStyle">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="cn.jpush.android.ui.PopWinActivity"/>
+                <category android:name="${applicationId}"/>
+            </intent-filter>
+        </activity>
+        <!-- 若您的业务中有使用极光富媒体功能，需要把此 Activity 的 exported 修改成 true 覆盖 mavenCentral 上的组件。 -->
+        <activity
+                android:name="cn.jpush.android.ui.PushActivity"
+                android:configChanges="orientation|keyboardHidden"
+                android:exported="true"
+                tools:node="replace"
+                android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="${applicationId}"/>
+            </intent-filter>
+        </activity>
+        <!-- Since JCore2.0.0 Required SDK核心功能-->
+        <!-- 可配置android:process参数将Service放在其他进程中；android:enabled属性不能是false -->
+        <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
+        <service android:name="com.example.qde.service.XService"
+                 android:enabled="true"
+                 android:exported="false"
+                 android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action"/>
+            </intent-filter>
+        </service>
+        <!-- Required since 3.0.7 -->
+        <!-- 新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 -->
+        <!-- 3.3.0开始所有事件将通过该类回调 -->
+        <!-- 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
+        <receiver
+                android:name="com.example.qde.receiver.MyReceiver"
+                android:enabled="true"
+                android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE"/>
+                <category android:name="${applicationId}"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

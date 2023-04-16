@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--底部导航栏-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/nav_qxx"
+            android:checkable="false"
+            android:icon="@drawable/ic_menu_qxx"
+            android:title="@string/menu_qxx" />
+
+    <item
+            android:id="@+id/nav_settings"
+            android:checkable="false"
+            android:icon="@drawable/ic_menu_settings"
+            android:title="@string/menu_settings" />
+</menu>

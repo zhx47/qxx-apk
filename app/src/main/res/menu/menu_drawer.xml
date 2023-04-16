@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><!--侧边栏-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/main_tab"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_qxx"
+            android:checkable="false"
+            android:icon="@drawable/ic_menu_qxx"
+            android:title="@string/menu_qxx" />
+    </group>
+
+    <group
+        android:id="@+id/other"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_settings"
+            android:checkable="false"
+            android:icon="@drawable/ic_menu_settings"
+            android:title="@string/menu_settings" />
+    </group>
+</menu>
