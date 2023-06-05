@@ -75,9 +75,9 @@ android {
             // 压缩对齐开关
             zipAlignEnabled true
             // 移除无用的资源
-            shrinkResources true
+//            shrinkResources true
             // 代码混淆开关
-            minifyEnabled true
+//            minifyEnabled true
             // 混淆配置
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -88,9 +88,9 @@ android {
             // 压缩对齐开关
             zipAlignEnabled true
             // 移除无用的资源
-            shrinkResources true
+//            shrinkResources true
             // 代码混淆开关
-            minifyEnabled true
+//            minifyEnabled true
             // 混淆配置
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

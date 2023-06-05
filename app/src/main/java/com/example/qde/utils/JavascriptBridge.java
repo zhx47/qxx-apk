@@ -26,7 +26,6 @@ import androidx.fragment.app.FragmentActivity;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 import com.example.qde.R;
-import com.example.qde.activity.MainActivity;
 import com.example.qde.fragment.LoginFragment;
 import com.example.qde.impl.CallBackValue;
 import com.example.qde.typer.bean.SendWsBean;
@@ -34,6 +33,7 @@ import com.example.qde.typer.callback.WebSocketCallBack;
 import com.example.qde.typer.js.VaptchaJavaScript;
 import com.example.qde.typer.listener.MyWebSocketListener;
 import com.example.qde.typer.platform.WuHuaGuo;
+import com.google.gson.Gson;
 import com.sd.shuadan.utils.JniUtils;
 import com.sky.testlibray.Afd;
 import com.tencent.smtt.export.external.interfaces.SslError;
@@ -1174,28 +1174,26 @@ public class JavascriptBridge implements TextToSpeech.OnInitListener, WebSocketC
     }
 
     @Override
+    @JavascriptInterface
     public void addWebSocket(String str, WebSocket webSocket) {
         this.hashMapWebSocket.put(str, webSocket);
     }
 
     @Override
+    @JavascriptInterface
     public void sendMessage(String str, String str2, String str3) {
         SendWsBean sendWsBean = new SendWsBean();
         sendWsBean.setSocketId(str);
         sendWsBean.setAction(str2);
         sendWsBean.setData(str3);
-        final String json = JSONObject.toJSONString(sendWsBean);
-        webView.post(() -> {
-            WebView webView2 = JavascriptBridge.webView;
-            webView2.loadUrl("javascript:onWebsocketCallback('" + Base64.encodeToString(json.getBytes(), 0) + "')");
-        });
+        String json = new Gson().toJson(sendWsBean);
+        webView.post(() -> JavascriptBridge.webView.loadUrl("javascript:onWebsocketCallback('" + Base64.encodeToString(json.getBytes(), 0) + "')"));
     }
 
     @JavascriptInterface
     public void savaData(String str, String str2) {
         Log.d(TAG, "savaData调用");
-        androidx.fragment.app.FragmentActivity fragmentActivity = activity;
-        SharedPreferences.Editor edit = fragmentActivity.getSharedPreferences(fragmentActivity.getString(R.string.account_data), 0).edit();
+        SharedPreferences.Editor edit = SharedPreference.preference.edit();
         edit.putString(str, str2);
         edit.commit();
     }
